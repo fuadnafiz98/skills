@@ -4,6 +4,8 @@
 
 Reusable agent skills by [fuadnafiz98](https://github.com/fuadnafiz98).
 
+Licensed under the [MIT License](LICENSE).
+
 ## Available skills
 
 ### review-comments

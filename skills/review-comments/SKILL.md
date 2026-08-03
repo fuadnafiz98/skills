@@ -1,6 +1,7 @@
 ---
 name: review-comments
 description: Review and clean comments or docstrings in recently changed code. Use when comments are noisy, redundant, obvious, outdated, task- or ticket-specific, agent-generated, over-explanatory, or unlikely to survive long-term maintenance; when preparing a diff for review or commit; or when asked to remove comment noise, rewrite comments to explain why, make code self-explanatory, or invoke /review-comments. Default to changed files and changed lines, never a whole-repository sweep unless explicitly requested.
+license: MIT
 ---
 
 # Review Comments

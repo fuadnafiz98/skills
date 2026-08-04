@@ -8,6 +8,16 @@ Licensed under the [MIT License](LICENSE).
 
 ## Available skills
 
+### clean-code
+
+Reviews code changed in the current task and applies focused readability and maintainability improvements without changing behavior.
+
+Install it with:
+
+```sh
+npx skills add fuadnafiz98/skills --skill clean-code
+```
+
 ### review-comments
 
 Reviews comments and docstrings in current code changes, removes maintenance noise, and preserves durable rationale.

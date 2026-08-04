@@ -67,6 +67,19 @@ Keep or write a comment only when it passes these questions:
 
 If a critical answer is no, delete, rewrite, convert, or clarify it.
 
+## Write for humans and agents
+
+Make every retained or rewritten comment readable by both human maintainers and coding agents:
+
+- Use plain, direct language with enough local context to stand on its own.
+- Name the concrete constraint, invariant, risk, or consequence instead of relying on implied intent.
+- Preserve established domain terminology so humans and agents can search for related concepts.
+- Avoid phrasing that depends on task history, author knowledge, human intuition, or agent-specific context.
+- Never use em dashes in comments or docstrings. Replace them with a period, comma, colon, semicolon, or parentheses, whichever expresses the relationship most clearly.
+- Remove existing em dashes from every comment or docstring within the review scope, even when the surrounding comment is otherwise retained unchanged.
+
+Do not alter em dashes in strings, user-facing copy, documentation, or untouched code unless the user explicitly expands the scope.
+
 ## Delete noise
 
 Delete comments that merely:

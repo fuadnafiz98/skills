@@ -28,6 +28,16 @@ Install it with:
 npx skills add fuadnafiz98/skills --skill review-comments
 ```
 
+### batch-dependency-bumps
+
+Rolls several open dependency-bump pull requests into one branch with a single lockfile regeneration, verifies it, then closes the originals as superseded.
+
+Install it with:
+
+```sh
+npx skills add fuadnafiz98/skills --skill batch-dependency-bumps
+```
+
 Or install every skill in this repository:
 
 ```sh

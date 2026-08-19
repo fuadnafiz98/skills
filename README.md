@@ -38,6 +38,16 @@ Install it with:
 npx skills add fuadnafiz98/skills --skill batch-dependency-bumps
 ```
 
+### output
+
+Hard-wraps every reply to 80 columns, flush left, so prose stays readable in a wide terminal. Takes a width argument (`/output 72`) and persists for the session.
+
+Install it with:
+
+```sh
+npx skills add fuadnafiz98/skills --skill output
+```
+
 Or install every skill in this repository:
 
 ```sh

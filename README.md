@@ -2,65 +2,37 @@
 
 [![skills.sh](https://skills.sh/b/fuadnafiz98/skills)](https://skills.sh/fuadnafiz98/skills)
 
-Reusable agent skills by [fuadnafiz98](https://github.com/fuadnafiz98).
+Six skills for coding agents, by [fuadnafiz98](https://github.com/fuadnafiz98).
+Each one is a single `SKILL.md` — no dependencies, nothing to configure.
 
-Licensed under the [MIT License](LICENSE).
+## Install
 
-## Available skills
-
-### clean-code
-
-Reviews code changed in the current task and applies focused readability and maintainability improvements without changing behavior.
-
-Install it with:
-
-```sh
-npx skills add fuadnafiz98/skills --skill clean-code
-```
-
-### review-comments
-
-Reviews comments and docstrings in current code changes, removes maintenance noise, and preserves durable rationale.
-
-Install it with:
-
-```sh
-npx skills add fuadnafiz98/skills --skill review-comments
-```
-
-### batch-dependency-bumps
-
-Rolls several open dependency-bump pull requests into one branch with a single lockfile regeneration, verifies it, then closes the originals as superseded.
-
-Install it with:
-
-```sh
-npx skills add fuadnafiz98/skills --skill batch-dependency-bumps
-```
-
-### output
-
-Formats replies to actually get read: verdict on the first line, blocks of at most ten lines, hard-wrapped at 80 columns, front-loaded headings. Eight modes on top of that floor — layer-cake, bluf, receipts, hook-loop, patch-notes, sparkline, quiz, greentext — chosen to fit the reply, or named explicitly (`/output 4chan`, `/output bluf`, `/output 72`). Persists for the session.
-
-Install it with:
-
-```sh
-npx skills add fuadnafiz98/skills --skill output
-```
-
-Or install every skill in this repository:
+Every skill:
 
 ```sh
 npx skills add fuadnafiz98/skills
 ```
 
-## Publishing
-
-Skills are discovered from `skills/*/SKILL.md`. After pushing this repository to GitHub, validate and publish a release with:
+Or just the ones you want:
 
 ```sh
-gh skill publish --dry-run
-gh skill publish --tag v1.0.0
+npx skills add fuadnafiz98/skills --skill clean-code --skill review-comments
 ```
 
-The first install through the Skills CLI makes the skill eligible to appear automatically on [skills.sh](https://skills.sh).
+Works with any agent that reads `SKILL.md` files, including Claude Code, where
+each skill is also available as a slash command (`/clean-code`).
+
+## The skills
+
+| Skill | What it does | Reach for it when |
+| --- | --- | --- |
+| **clean-code** | Improves naming, structure, and dependency placement in code changed during the current task, without changing behaviour. | You have just implemented something and want it tidied before review. |
+| **review-comments** | Removes comment and docstring noise — the obvious, the outdated, the ticket-specific — and keeps the rationale worth maintaining. | A diff is carrying comments that will not survive six months. |
+| **rethink-solution** | Runs a second design pass over finished work to expose shortcuts, accidental complexity, and validation that only proves the happy path. | It works, but you suspect it is messy, overbuilt, or the easy path. |
+| **resolve-conflicts** | Resolves every conflict in an in-progress rebase or merge, keeping the target branch's structure and reapplying the incoming intent. | Git has stopped mid-rebase and the conflicts are not trivial. |
+| **batch-dependency-bumps** | Rolls a backlog of dependency-bump pull requests into one branch with a single lockfile regeneration, verifies it, then closes the originals as superseded. | Dependabot or Renovate has opened more PRs than anyone will review. |
+| **output** | Reformats replies to be readable: the answer on line one, hard-wrapped at 80 columns, blocks of at most ten lines, and modes for headings, evidence, changelogs, and sparklines. | Wide-terminal replies are a wall of text you skip. |
+
+## Licence
+
+[MIT](LICENSE).

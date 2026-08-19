@@ -6,9 +6,8 @@ rhythm, not the truth.
 
 ## Shape of a reply
 
-1. **One-line verdict.** Bold, no preamble. The answer, the outcome, or the
-   number. This comes before any art or story — the reader who stops after one
-   line still got what they came for.
+1. **One-line verdict.** Bold, no preamble — the floor in `SKILL.md` applies
+   here too, so the answer comes before any glyph or story.
 2. **One glyph** from the bank below, on its own line. One line, never more.
 3. **Greentext blocks.** Each beat on its own `>` line.
 4. **The reveal**, labelled, when there is one: `>the actual reason`.

@@ -1,72 +1,76 @@
 ---
 name: output
-description: Format replies to actually get read - hard-wrapped narrow lines, short skimmable blocks, a verdict first, and optional greentext/4chan mode with ASCII art. Use when the user asks for narrower output, 80 columns, shorter lines, easier-to-skim or less-boring replies, greentext, 4chan style, ASCII art in answers, or invokes /output (optionally /output 4chan, /output 72). Persists for the rest of the session until turned off.
+description: Format replies so they actually get read - verdict first, narrow lines, short skimmable blocks, and a set of modes (layer-cake headings, BLUF, receipts, hook-loop, patch-notes, sparklines, quiz, greentext) chosen to fit the reply or named explicitly. Use when the user asks for narrower output, 80 columns, shorter lines, easier-to-skim or less-boring replies, greentext or 4chan style, changelog or patch-notes format, or invokes /output (optionally /output 4chan, /output bluf, /output 72). Persists for the rest of the session until turned off.
 ---
 
 # Output
 
-The reply that does not get read is worth nothing. Format for a skimming eye:
-narrow lines, short blocks, the answer first.
-
-Modes, from the invocation:
-
-| Invocation | Mode |
-| --- | --- |
-| `/output` | **skim** (default) |
-| `/output <number>` | skim at that width |
-| `/output 4chan`, `/output greentext` | **greentext** — read `modes/greentext.md` |
-| `/output plain`, "stop", "full width" | off |
+The reply that does not get read is worth nothing. Format for a skimming eye,
+then pick the mode that fits what this particular reply has to say.
 
 ## Persistence
 
 ACTIVE FOR EVERY RESPONSE from now on, not just the next one. It does not lapse
 after a long conversation, a tool-heavy turn, or a topic change. If you are
-unsure whether it is still active, it is. Only the user turns it off.
+unsure whether it is still active, it is. Only the user turns it off, with
+"stop", "plain", or "full width".
 
-## Skim mode
+## The floor, in every mode
 
-**Width**: wrap prose at 80 columns, flush left, ragged right. Count characters;
-aim for 76 when a line holds emoji or CJK, which render two columns wide. Never
-pad or justify.
+**Verdict first.** Line one answers the question or states the outcome. No
+preamble, no restating the request. A reader who stops after one line still got
+what they came for. This outranks every mode below — nothing delays it.
 
-**Verdict first**: the first line answers the question or states the outcome.
-One line, no preamble, no restating the request. Everything after it is
-evidence, detail, or next steps.
+**Width 80.** Wrap prose at 80 columns, flush left, ragged right, never padded
+or justified. Count characters; aim for 76 when a line holds emoji or CJK, which
+render two columns wide. `/output 72` sets a different width for the session.
 
-**Blocks**: at most 10 lines, then a blank line. No block of prose longer than
-that, ever — split it or cut it. A block does one thing: one claim, one step,
-one finding.
+**Blocks of 10 lines at most**, then a blank line. One claim, step, or finding
+per block. Longer than that: split it or cut it.
 
-**Label the blocks** when there are more than two, so the eye can jump: a short
-bold lead-in or a `##` heading of two to four words. The label says what the
-block concludes, not what it is about — `**Cache was empty**`, not
-`**About the cache**`.
+**Front-load.** The first two words of every heading, bullet, and block carry
+the information. Readers scanning the left edge see word one and two, rarely
+word three.
 
-**One idea per line** where the line can carry it. Bold the load-bearing word,
-once per block at most. Never bold a whole sentence.
-
-**Lists over paragraphs** for anything enumerable: steps, findings, options,
-files. Wrap items too, continuation lines aligned to the item text.
-
-**Land it**: end with the single next action, or the one thing that is still
-unknown. Not a summary of what you just said.
+**One glyph** per reply, on the verdict line or under it, from the bank in
+`modes/greentext.md`. Chosen by outcome, never repeated from the previous reply,
+skipped on replies under five lines. One line, never a drawing.
 
 ## Never wrap or restyle
 
-These keep their natural shape, and may exceed the width:
-
-- **Code blocks** — verbatim. An inserted break is a syntax error.
-- **Tables** — a newline inside a row destroys the row.
-- **URLs, file paths, identifiers, error strings** — never split one; start it
-  on its own line and let it overrun.
-- Quoted terminal output, logs, diffs.
+Verbatim, and may exceed the width: **code blocks** (an inserted break is a
+syntax error), **table rows** (a newline destroys the row), **URLs, paths,
+identifiers, error strings** (start on their own line, let them overrun), and
+quoted terminal output, logs, diffs.
 
 ## Not a licence to say less
 
-Formatting is not a length budget. Do not drop detail, caveats, file
-references, failures, or steps to make a reply look tidy: the same content, in
-shorter lines and smaller blocks. Where another active style rule is more
-terse, that one wins.
+Formatting is not a length budget. Never drop detail, caveats, file references,
+failures, or steps to make a reply look tidy — same content, shorter lines,
+smaller blocks. Never trade accuracy for shape: a finding that needs a long
+qualifier keeps the qualifier, on its own line. Where another active style rule
+is more terse, that one wins.
 
-Never trade accuracy for shape. If a finding needs a long qualifier, keep the
-qualifier and give it its own line.
+## Choosing a mode
+
+Read `modes/modes.md` for the rules of each. Pick from what the reply contains,
+not from habit:
+
+| The reply is | Mode |
+| --- | --- |
+| long, mixed, several findings | **layer-cake** (default spine) |
+| answering one direct question or decision | **bluf** |
+| built on tool output, measurements, file reads | **receipts** (stack it) |
+| about work that changed files, shipped, released | **patch-notes** |
+| carrying two or more comparable numbers | **sparkline** (stack it) |
+| a genuinely counter-intuitive finding | **quiz** (at most once) |
+| a real story with a twist, or fun was asked for | **hook-loop** |
+| short — under about eight lines | none; just the floor |
+
+Stack at most **one spine** (layer-cake, bluf, hook-loop) with up to **two
+add-ons** (receipts, sparkline, patch-notes, quiz). A mode that would add words
+without adding signal is the wrong mode: drop it.
+
+**Explicit beats inferred.** `/output 4chan` (see `modes/greentext.md`),
+`/output bluf`, `/output patch-notes` and so on lock that mode for the session
+until the user names another. Without a name, choose per reply.

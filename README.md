@@ -40,7 +40,7 @@ npx skills add fuadnafiz98/skills --skill batch-dependency-bumps
 
 ### output
 
-Formats replies to actually get read: verdict on the first line, blocks of at most ten lines, hard-wrapped at 80 columns. `/output 4chan` switches to greentext blocks with a small ASCII header. Persists for the session.
+Formats replies to actually get read: verdict on the first line, blocks of at most ten lines, hard-wrapped at 80 columns, front-loaded headings. Eight modes on top of that floor — layer-cake, bluf, receipts, hook-loop, patch-notes, sparkline, quiz, greentext — chosen to fit the reply, or named explicitly (`/output 4chan`, `/output bluf`, `/output 72`). Persists for the session.
 
 Install it with:
 

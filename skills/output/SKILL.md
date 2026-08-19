@@ -1,76 +1,72 @@
 ---
 name: output
-description: Hard-wrap every reply to 80 columns, flush left, so prose stays readable in a wide terminal instead of running the full window width. Use when the user asks for narrower output, 80 characters or columns, shorter lines, hard wrapping, easier-to-read replies in a wide window, or invokes /output. Accepts a width argument (/output 72). Persists for the rest of the session until turned off.
+description: Format replies to actually get read - hard-wrapped narrow lines, short skimmable blocks, a verdict first, and optional greentext/4chan mode with ASCII art. Use when the user asks for narrower output, 80 columns, shorter lines, easier-to-skim or less-boring replies, greentext, 4chan style, ASCII art in answers, or invokes /output (optionally /output 4chan, /output 72). Persists for the rest of the session until turned off.
 ---
 
-# Output width
+# Output
 
-Wrap all prose you write to the user at **80 columns**, starting flush left.
-A reply that spans a 200-column terminal is one long line the eye cannot track
-back from; 80 is the width that keeps it readable.
+The reply that does not get read is worth nothing. Format for a skimming eye:
+narrow lines, short blocks, the answer first.
 
-If the invocation carried a number (`/output 72`), that number is the width for
-the rest of the session. Otherwise it is 80.
+Modes, from the invocation:
+
+| Invocation | Mode |
+| --- | --- |
+| `/output` | **skim** (default) |
+| `/output <number>` | skim at that width |
+| `/output 4chan`, `/output greentext` | **greentext** — read `modes/greentext.md` |
+| `/output plain`, "stop", "full width" | off |
 
 ## Persistence
 
 ACTIVE FOR EVERY RESPONSE from now on, not just the next one. It does not lapse
 after a long conversation, a tool-heavy turn, or a topic change. If you are
-unsure whether it is still active, it is.
+unsure whether it is still active, it is. Only the user turns it off.
 
-Stop only when the user says so — "stop wrapping", "full width", "normal
-output" — or sets a new width.
+## Skim mode
 
-## What to wrap
+**Width**: wrap prose at 80 columns, flush left, ragged right. Count characters;
+aim for 76 when a line holds emoji or CJK, which render two columns wide. Never
+pad or justify.
 
-Break lines at word boundaries so no line exceeds the width. Count characters,
-and aim for 76 or fewer when a line contains emoji or CJK text, since those
-render two columns wide.
+**Verdict first**: the first line answers the question or states the outcome.
+One line, no preamble, no restating the request. Everything after it is
+evidence, detail, or next steps.
 
-- Paragraphs: hard-wrapped, one blank line between them, no leading spaces.
-- List items: wrapped too. Indent continuation lines to line up with the text
-  of the item, not with the bullet.
-- Headings: leave them on one line even if a heading runs long; never break a
-  heading mid-phrase.
-- Sentences: never pad or stretch a line to reach the width. Ragged right is
-  correct; justified text is not.
+**Blocks**: at most 10 lines, then a blank line. No block of prose longer than
+that, ever — split it or cut it. A block does one thing: one claim, one step,
+one finding.
 
-## What to leave alone
+**Label the blocks** when there are more than two, so the eye can jump: a short
+bold lead-in or a `##` heading of two to four words. The label says what the
+block concludes, not what it is about — `**Cache was empty**`, not
+`**About the cache**`.
 
-Wrapping these breaks them, so they keep their natural width and may exceed it:
+**One idea per line** where the line can carry it. Bold the load-bearing word,
+once per block at most. Never bold a whole sentence.
 
-- **Code blocks** — every character inside a fence is verbatim. A line break
-  you insert is a syntax error or a changed command.
+**Lists over paragraphs** for anything enumerable: steps, findings, options,
+files. Wrap items too, continuation lines aligned to the item text.
+
+**Land it**: end with the single next action, or the one thing that is still
+unknown. Not a summary of what you just said.
+
+## Never wrap or restyle
+
+These keep their natural shape, and may exceed the width:
+
+- **Code blocks** — verbatim. An inserted break is a syntax error.
 - **Tables** — a newline inside a row destroys the row.
-- **URLs, file paths, identifiers, error strings** — never split one. If it
-  does not fit in the remaining space, start it on its own line and let it
-  overrun.
-- Terminal output, logs, and diffs you are quoting.
+- **URLs, file paths, identifiers, error strings** — never split one; start it
+  on its own line and let it overrun.
+- Quoted terminal output, logs, diffs.
 
 ## Not a licence to say less
 
-The width is a formatting rule, not a length budget. Do not drop detail,
-caveats, file references, or steps to make a reply look narrow — the same
-content, in shorter lines. Existing style rules still apply on top of this;
-where one is more terse, it wins.
+Formatting is not a length budget. Do not drop detail, caveats, file
+references, failures, or steps to make a reply look tidy: the same content, in
+shorter lines and smaller blocks. Where another active style rule is more
+terse, that one wins.
 
-## Example
-
-Instead of one long line:
-
-```
-The retry lives in scripts/watchdog.py and fires only on StopFailure, which means an API error that killed the turn, not a normal stop.
-```
-
-write:
-
-```
-The retry lives in scripts/watchdog.py and fires only on StopFailure, which
-means an API error that killed the turn, not a normal stop.
-```
-
-## Caveat worth knowing
-
-The terminal wraps anything wider than its own window regardless. If the window
-is narrower than the chosen width, lines will still fold — reduce the width to
-match, e.g. `/output 60`.
+Never trade accuracy for shape. If a finding needs a long qualifier, keep the
+qualifier and give it its own line.

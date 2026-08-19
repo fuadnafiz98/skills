@@ -40,7 +40,7 @@ npx skills add fuadnafiz98/skills --skill batch-dependency-bumps
 
 ### output
 
-Hard-wraps every reply to 80 columns, flush left, so prose stays readable in a wide terminal. Takes a width argument (`/output 72`) and persists for the session.
+Formats replies to actually get read: verdict on the first line, blocks of at most ten lines, hard-wrapped at 80 columns. `/output 4chan` switches to greentext blocks with a small ASCII header. Persists for the session.
 
 Install it with:
 

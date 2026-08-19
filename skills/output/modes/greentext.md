@@ -1,8 +1,8 @@
 # Greentext mode
 
-Everything in the skim mode of `SKILL.md` still holds: 80 columns, verdict
-first, blocks of at most 10 lines, nothing dropped. This mode changes the
-rhythm, not the truth.
+The floor in `SKILL.md` still holds: 80 columns, verdict first, blocks of at
+most 10 lines, nothing dropped. This mode changes the rhythm, not the truth.
+Glyph bank: `modes/glyphs.md`.
 
 ## Shape of a reply
 
@@ -52,25 +52,3 @@ rhythm, not the truth.
 >range-check every percentage on the way out
 
 Verified on eight payloads; the empty-cache case renders `--%` now.
-
-## Art bank
-
-One line, one per reply, on the line under the verdict. Pick the one that
-matches the outcome -- it is a status glyph, not decoration -- and never repeat
-the previous reply's. Skip it entirely when the reply is under five lines.
-
-| Outcome | Glyph |
-| --- | --- |
-| shipped, green, done | `\o/` |
-| found the bug | `(ಠ_ಠ)` |
-| it is broken | `(╯°□°)╯ ┻━┻` |
-| fixed it | `┬─┬ ノ( ゜-゜ノ)` |
-| still waiting on something | `(－_－) zzz` |
-| no idea yet | `¯\_(ツ)_/¯` |
-| frog | `@..@` |
-| suspicious but unproven | `(¬_¬)` |
-| big win | `(•_•)ﻭ` |
-| gave up, by choice | `(ノ_<。)` |
-
-Two lines maximum, ever. A seven-line drawing costs tokens, goes stale on the
-second sighting, and pushes the verdict off the top of the screen.

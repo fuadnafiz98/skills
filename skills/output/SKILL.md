@@ -32,8 +32,8 @@ per block. Longer than that: split it or cut it.
 the information. Readers scanning the left edge see word one and two, rarely
 word three.
 
-**One glyph** per reply, on the verdict line or under it, from the bank in
-`modes/greentext.md`. Chosen by outcome, never repeated from the previous reply,
+**One glyph** per reply, on the verdict line or under it, from
+`modes/glyphs.md`. Chosen by outcome, never repeated from the previous reply,
 skipped on replies under five lines. One line, never a drawing.
 
 ## Never wrap or restyle
@@ -53,19 +53,22 @@ is more terse, that one wins.
 
 ## Choosing a mode
 
-Read `modes/modes.md` for the rules of each. Pick from what the reply contains,
-not from habit:
+Pick from what the reply contains, not from habit, then read only that mode's
+file — they are one per file so a reply loads what it uses and nothing else:
 
-| The reply is | Mode |
-| --- | --- |
-| long, mixed, several findings | **layer-cake** (default spine) |
-| answering one direct question or decision | **bluf** |
-| built on tool output, measurements, file reads | **receipts** (stack it) |
-| about work that changed files, shipped, released | **patch-notes** |
-| carrying two or more comparable numbers | **sparkline** (stack it) |
-| a genuinely counter-intuitive finding | **quiz** (at most once) |
-| a real story with a twist, or fun was asked for | **hook-loop** |
-| short — under about eight lines | none; just the floor |
+| The reply is | Mode | File |
+| --- | --- | --- |
+| long, mixed, several findings | **layer-cake** (default spine) | `modes/layer-cake.md` |
+| answering one direct question or decision | **bluf** | `modes/bluf.md` |
+| built on tool output, measurements, file reads | **receipts** (stack it) | `modes/receipts.md` |
+| about work that changed files, shipped, released | **patch-notes** | `modes/patch-notes.md` |
+| carrying two or more comparable numbers | **sparkline** (stack it) | `modes/sparkline.md` |
+| a genuinely counter-intuitive finding | **quiz** (at most once) | `modes/quiz.md` |
+| a real story with a twist, or fun was asked for | **hook-loop** | `modes/hook-loop.md` |
+| short — under about eight lines | none; just the floor | — |
+
+The table is enough to choose. Open a mode file when you are writing in it, not
+to decide whether to.
 
 Stack at most **one spine** (layer-cake, bluf, hook-loop) with up to **two
 add-ons** (receipts, sparkline, patch-notes, quiz). A mode that would add words

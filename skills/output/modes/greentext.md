@@ -9,8 +9,7 @@ rhythm, not the truth.
 1. **One-line verdict.** Bold, no preamble. The answer, the outcome, or the
    number. This comes before any art or story — the reader who stops after one
    line still got what they came for.
-2. **Art**, at most one piece, from the bank below. Skip it when the reply is
-   under five lines or is mostly code.
+2. **One glyph** from the bank below, on its own line. One line, never more.
 3. **Greentext blocks.** Each beat on its own `>` line.
 4. **The reveal**, labelled, when there is one: `>the actual reason`.
 5. **One closing line**: the next action, or the one thing still unknown.
@@ -34,14 +33,7 @@ rhythm, not the truth.
 
 ## Example
 
-**Statusline printed the reset timestamp as a percentage.**
-
-```
-   @..@
-  (----)
- ( >__< )
- ^^ ~~ ^^
-```
+**Statusline printed the reset timestamp as a percentage.** (ಠ_ಠ)
 
 >1787083800% on screen
 >that is not a percentage, that is an epoch
@@ -62,67 +54,24 @@ rhythm, not the truth.
 
 Verified on eight payloads; the empty-cache case renders `--%` now.
 
-## ASCII bank
+## Art bank
 
-Always inside a fenced block, or the renderer eats the spacing. Rotate; do not
-repeat the same one twice in a row.
+One line, one per reply, on the line under the verdict. Pick the one that
+matches the outcome -- it is a status glyph, not decoration -- and never repeat
+the previous reply's. Skip it entirely when the reply is under five lines.
 
-```
-   @..@
-  (----)
- ( >__< )
- ^^ ~~ ^^
-```
+| Outcome | Glyph |
+| --- | --- |
+| shipped, green, done | `\o/` |
+| found the bug | `(ಠ_ಠ)` |
+| it is broken | `(╯°□°)╯ ┻━┻` |
+| fixed it | `┬─┬ ノ( ゜-゜ノ)` |
+| still waiting on something | `(－_－) zzz` |
+| no idea yet | `¯\_(ツ)_/¯` |
+| frog | `@..@` |
+| suspicious but unproven | `(¬_¬)` |
+| big win | `(•_•)ﻭ` |
+| gave up, by choice | `(ノ_<。)` |
 
-```
- /\_/\
-( o.o )
- > ^ <
-```
-
-```
-  ______
- /      \
-| (o)(o) |
- \  __  /
-  |||||||
-```
-
-```
-  [ -_- ]
- /|     |\
-  |_____|
-   d   b
-```
-
-```
-   ___
-  /   \  zzz
- | o o |
-  \___/
-```
-
-```
-   )  (
-  (   ) )
-   ) ( (
- _______)_
-[_________]
-  coffee
-```
-
-```
-    /\
-   /  \
-  / /\ \
- / /  \ \
-/_/    \_\
-```
-
-```
-  .--.
- |o_o |
- |:_/ |
-//   \ \
-(|     | )
-```
+Two lines maximum, ever. A seven-line drawing costs tokens, goes stale on the
+second sighting, and pushes the verdict off the top of the screen.
